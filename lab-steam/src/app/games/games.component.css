@@ -1,0 +1,113 @@
+.games {
+  padding: 20px 60px;
+  width: 1200px;
+  margin: 0 auto;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+}
+
+.games__title {
+  font-size: 24px;
+}
+
+.games__form {
+  display: flex;
+  align-items: end;
+}
+
+.games__label {
+  width: 100%;
+  font-size: 14px;
+}
+
+.games__input {
+  width: 100%;
+  height: 32px;
+  display: block;
+  border: 0.5px solid #000000;
+  border-radius: 4px;
+}
+
+.games__submit {
+  margin-left: 8px;
+  width: 75px;
+  height: 32px;
+  text-align: center;
+  color: #fff;
+  background: #6c69ff;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.games__inner {
+  display: flex;
+}
+
+.games__results {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.games__item {
+  margin-bottom: 10px;
+  max-width: 272px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  font-size: 24px;
+}
+
+.games__item:not(:nth-child(3n)) {
+  margin-right: 10px;
+}
+
+.games__item_top {
+  padding: 8px;
+  background: #bdbcff;
+  color: #fff;
+}
+
+.games__item_title {
+  margin: 0;
+  margin-bottom: 78px;
+  font-weight: normal;
+}
+
+.games__item_price {
+  text-align: right;
+}
+
+.games__item_bottom {
+  padding: 16px;
+}
+
+.games__item_text {
+  margin-bottom: 8px;
+  font-size: 13px;
+  line-height: 15px;
+}
+
+.games__item_add {
+  padding: 8px;
+  width: 100%;
+  background: #6c69ff;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.games__line {
+  margin-right: 10px;
+  width: 0.5px;
+  background-color: #000;
+}
+
+.game__filters_label {
+  display: block;
+}
+

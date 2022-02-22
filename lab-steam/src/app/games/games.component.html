@@ -1,0 +1,62 @@
+<div class="games">
+  <h3 class="games__title">
+    Games
+  </h3>
+  <form action="#" class="games__form">
+    <label class="games__label">
+      Search Games
+      <input type="text" placeholder="Search Games" class="games__input" #searchInput>
+    </label>
+    <button class="games__submit" (click)="search($event, searchInput.value)">
+      Search
+    </button>
+  </form>
+  <h3 class="games__title">
+    Featured Games
+  </h3>
+  <div class="games__inner">
+    <div class="games__results">
+      <div class="games__item" *ngFor="let game of games">
+        <div class="games__item_top">
+          <h4 class="games__item_title">
+            {{game.name}}
+          </h4>
+          <div class="games__item_price">
+            {{game.price}} UAH
+          </div>
+        </div>
+        <div class="games__item_bottom">
+          <p class="games__item_text">
+            Hell's armies have invaded Earth. Become the Slayer in an epic single-player campaign to conquer demons
+            across dimensions and stop the final destruction of humanity. The only thing they fear... is you.
+          </p>
+          <button class="games__item_add" (click)="service.addToLibrary(game)">
+            Add to Library
+          </button>
+        </div>
+      </div>
+    </div>
+    <span class="games__line"></span>
+    <div class="games__filters">
+      <div>
+        Filter by price
+      </div>
+      <input type="range">
+      <div>
+        Filter by tag
+      </div>
+      <label class="game__filters_label">
+        <input type="checkbox">
+        Indie
+      </label>
+      <label class="game__filters_label">
+        <input type="checkbox">
+        Action
+      </label>
+      <label class="game__filters_label">
+        <input type="checkbox">
+        Adventure
+      </label>
+    </div>
+  </div>
+</div>

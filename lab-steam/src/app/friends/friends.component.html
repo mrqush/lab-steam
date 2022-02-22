@@ -1,0 +1,27 @@
+<div class="friends">
+  <h3 class="friends__title">
+    Friends
+  </h3>
+  <form action="#" class="friends__form">
+    <label class="friends__label">
+      Search Friends
+      <input type="text" placeholder="Search Friends" class="friends__input" #input>
+    </label>
+    <button type="submit" class="friends__submit" (click)="searchFriend($event, input.value)">
+      Search
+    </button>
+  </form>
+  <h3 class="friends__title">
+    My Friends
+  </h3>
+  <ul class="friends__list">
+    <li class="friends__item" *ngFor="let user of users">
+      <div class="friends__name">
+        {{user.name}}
+      </div>
+      <button [ngClass]="user.isFriend ? 'friends__add' : 'friends__remove'" (click)="service.actionFriend(user)">
+        {{service.friendCheck(user)}}
+      </button>
+    </li>
+  </ul>
+</div>

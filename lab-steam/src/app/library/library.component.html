@@ -1,0 +1,26 @@
+<div class="library">
+  <h3 class="library__title">
+    Library
+  </h3>
+  <div class="library__list">
+    <div class="library__item" *ngFor="let game of service.gamesInLibrary">
+      <div class="library__item_top">
+        <h4 class="library__item_title">
+          {{game.name}}
+        </h4>
+        <div class="library__item_price">
+          {{game.price}} UAH
+        </div>
+      </div>
+      <div class="library__item_bottom">
+        <p class="library__item_text">
+          Hell's armies have invaded Earth. Become the Slayer in an epic single-player campaign to conquer demons
+          across dimensions and stop the final destruction of humanity. The only thing they fear... is you.
+        </p>
+        <button class="library__item_remove" (click)="service.removeFromLibrary(game)">
+          Remove from Library
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

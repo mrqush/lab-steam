@@ -1,0 +1,87 @@
+.friends {
+  padding: 20px 60px;
+  margin: 0 auto;
+  max-width: 1200px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+}
+
+.friends__title {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.friends__form {
+  display: flex;
+  align-items: end;
+}
+
+.friends__label {
+  width: 100%;
+  font-size: 14px;
+}
+
+.friends__input {
+  width: 100%;
+  height: 32px;
+  display: block;
+  border: 0.5px solid #000000;
+  border-radius: 4px;
+}
+
+.friends__submit {
+  margin-left: 8px;
+  width: 75px;
+  height: 32px;
+  text-align: center;
+  color: #fff;
+  background: #6C69FF;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.friends__list {
+  padding: 0;
+  list-style-type: none;
+}
+
+.friends__item {
+  padding: 8px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.friends__item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.friends__remove {
+  width: 118px;
+  padding: 8px 16px;
+  background: #FF6F6F;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.friends__add {
+  width: 118px;
+  padding: 8px 16px;
+  background: rgb(88, 184, 32);
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
