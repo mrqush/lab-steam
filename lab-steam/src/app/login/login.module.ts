@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginComponent } from './login.component';
+import { NotificationModule } from '../notification/notification.module';
 
 
 
@@ -8,7 +8,8 @@ import { LoginComponent } from './login.component';
   declarations: [
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    NotificationModule
   ]
 })
 export class LoginModule { }

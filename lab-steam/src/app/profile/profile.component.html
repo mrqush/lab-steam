@@ -2,20 +2,21 @@
   <div class="profile__title">
     Profile
   </div>
-  <form action="#" class="profile__form">
+  <app-loader [width]="200" *ngIf="loading"></app-loader>
+  <form action="#" class="profile__form" *ngIf="!loading">
     <label class="profile__label">
       Username
-      <input type="text" name="username" class="profile__input">
+      <input type="text" name="username" class="profile__input" [(ngModel)]="user.username" #inputUsername>
     </label>
     <label class="profile__label">
       Email
-      <input type="email" name="email" class="profile__input">
+      <input type="email" name="email" class="profile__input" [(ngModel)]="user.email" #inputEmail>
     </label>
     <label class="profile__label">
       Age
-      <input type="text" name="age" class="profile__input">
+      <input type="text" name="age" class="profile__input" [(ngModel)]="user.age" #inputAge>
     </label>
-    <button type="submit" class="profile__submit">
+    <button type="submit" class="profile__submit" (click)="updateUserData(inputUsername.value, inputEmail.value, inputAge.value)">
       Save
     </button>
   </form>

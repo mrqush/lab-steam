@@ -3,6 +3,11 @@
   box-sizing: border-box;
 }
 
+:root {
+  --accent-color: #6C69FF;
+  --warn-color: #FF6F6F;
+}
+
 body {
   background: #F4F4F4;
   padding: 0;

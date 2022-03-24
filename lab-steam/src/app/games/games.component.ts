@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { games } from '../data/games'
+import { initializeApp } from 'firebase/app';
+import { collection, getDocs, getFirestore } from 'firebase/firestore';
+import { environment } from 'src/environments/environment';
 import { CartService } from '../services/cart.service';
-import { Game } from '../types/game.type';
+
+initializeApp(environment.firebase);
+const db = getFirestore();
 
 @Component({
   selector: 'app-games',
@@ -9,8 +13,10 @@ import { Game } from '../types/game.type';
   styleUrls: ['./games.component.css']
 })
 export class GamesComponent implements OnInit {
-  games: Array<Game> = games;
+  games: Array<any> = [];
   inputValue: string = '';
+  showLoader: boolean = false;
+  rangeValue: number = 500;
 
   search(e: any, data: string) {
     e.stopPropagation();
@@ -18,11 +24,11 @@ export class GamesComponent implements OnInit {
 
     let reg = new RegExp(data.trim());
     if (data.trim() === '') {
-      this.games = games;
+      this.getGames();
       return
     }
 
-    this.games = games.filter(item => {
+    this.games = this.games.filter(item => {
       if (item.name.search(reg) != -1) {
         return true
       }
@@ -30,9 +36,32 @@ export class GamesComponent implements OnInit {
     });
   }
 
+  async getGames() {
+    this.games.length = 0;
+    const colRef = collection(db, 'games');
+    this.showLoader = true;
+    return getDocs(colRef)
+      .then((snapshot) => {
+        snapshot.docs.forEach((doc) => {
+          this.games.push({ ...doc.data(), gameId: doc.id });
+        })
+        this.showLoader = false;
+      })
+      .catch(err => {
+        this.showLoader = false;
+        console.log(err.message);
+      })
+  }
+
+  async applyFilters() {
+    await this.getGames();
+    this.games = this.games.filter(item => item.price <= this.rangeValue);
+  }
+
   constructor(public service: CartService) { }
 
   ngOnInit(): void {
+    this.getGames();
   }
 
 }

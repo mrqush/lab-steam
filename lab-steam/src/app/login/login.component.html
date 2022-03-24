@@ -1,3 +1,4 @@
+<app-notification *ngIf="service.showNotification" [status]="service.notificationStatus" [text]="service.notificationText"></app-notification>
 <div class="login">
   <div class="login__title">
     Sign In
@@ -5,14 +6,18 @@
   <form action="#" class="login__form">
     <label class="login__label">
       Email
-      <input type="email" name="email" class="login__input">
+      <input type="email" name="email" class="login__input" #login>
     </label>
     <label class="login__label">
       Password
-      <input type="password" name="pass" class="login__input">
+      <input type="password" name="pass" class="login__input" #password>
     </label>
-    <button type="submit" class="login__submit">
+    <button type="submit" class="login__submit" (click)="service.signin($event,login.value,password.value)">
       Sign In
     </button>
+    <button (click)="service.signup('mark.vasnev@gmail.com','password123')">signup</button>
+    <button (click)="service.getLoginStatus($event)">check</button>
+    <button (click)="service.logout()">logout</button>
+    <app-loader *ngIf="service.showLoader" [width]="200"></app-loader>
   </form>
 </div>

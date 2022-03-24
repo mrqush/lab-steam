@@ -6,11 +6,12 @@ import { ProfileComponent } from './profile/profile.component';
 import { GamesComponent } from './games/games.component';
 import { FriendsComponent } from './friends/friends.component';
 import { LibraryComponent } from './library/library.component';
+import { LoginGuard } from './guard/login.guard';
 
 export const routes: Routes = [
   {
     path: '',
-    component: LoginComponent
+    component: LoginComponent,
   },
   {
     path: 'login',
@@ -18,19 +19,23 @@ export const routes: Routes = [
   },
   {
     path: 'profile',
-    component: ProfileComponent
+    component: ProfileComponent,
+    canActivate: [LoginGuard]
   },
   {
     path: 'games',
-    component: GamesComponent
+    component: GamesComponent,
+    canActivate: [LoginGuard]
   },
   {
     path: 'friends',
-    component: FriendsComponent
+    component: FriendsComponent,
+    canActivate: [LoginGuard]
   },
   {
     path: 'library',
-    component: LibraryComponent
+    component: LibraryComponent,
+    canActivate: [LoginGuard]
   }
 ]
 
@@ -38,8 +43,9 @@ export const routes: Routes = [
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+
   ],
-  exports: [ RouterModule ]
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -12,14 +12,15 @@
     </button>
   </form>
   <h3 class="friends__title">
-    My Friends
+    {{title}}
   </h3>
   <ul class="friends__list">
+    <app-loader *ngIf="showLoader" [width]="200"></app-loader>
     <li class="friends__item" *ngFor="let user of users">
       <div class="friends__name">
         {{user.name}}
       </div>
-      <button [ngClass]="user.isFriend ? 'friends__add' : 'friends__remove'" (click)="service.actionFriend(user)">
+      <button [ngClass]="user.isFriend ? 'friends__remove' : 'friends__add'" (click)="updateFriend(user.userId, user.isFriend)">
         {{service.friendCheck(user)}}
       </button>
     </li>
